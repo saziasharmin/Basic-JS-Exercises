@@ -11,13 +11,13 @@ Output:
  --------------------------- */
 
 function percentage(number, percentage) {
-  return "No code yet";
+  return (number/100)*percentage;
 }
 console.log("Percentage Calculator:");
 /* Uncomment the following to check */
-  // console.log(percentage(2000, 37.12));
-  // console.log(percentage(450, 56.5));
-  // console.log(percentage(5230, 34));
+  console.log(percentage(2000, 37.12));
+  console.log(percentage(450, 56.5));
+  console.log(percentage(5230, 34));
 
 
 /* ---------------------------
@@ -33,13 +33,13 @@ Output:
  --------------------------- */
 
  function areaTriangle(base, height) {
-   return "No code yet";
+   return ( base * height ) / 2.0;
  }
  console.log("Triangle Area Calculator:");
  /* Uncomment the following to check */
-   // console.log(areaTriangle(2, 7));
-   // console.log(areaTriangle(20, 56.5));
-   // console.log(areaTriangle(50, 34));
+    console.log(areaTriangle(2, 7));
+    console.log(areaTriangle(20, 56.5));
+    console.log(areaTriangle(50, 34));
 
 
 /* ---------------------------
@@ -61,13 +61,18 @@ HINT: Use substring()
  --------------------------- */
 
 function rotate_string(text) {
+   
   console.log(text);
+    for (var i=0 ; i<text.length; i++){
+        text = text[text.length-1] + text.substring(0, text.length-1);
+        console.log(text);
+    }
 }
 
 console.log("Rotate String:");
 /* Uncomment the following to check */
-  //rotate_string("cat");
-  //rotate_string("pseudonym")
+  rotate_string("cat");
+  rotate_string("pseudonym")
 
 
 /* ---------------------------
@@ -85,13 +90,20 @@ HINT: Use split() and substring()
  --------------------------- */
 
 function protect_email(email) {
-  return "protected email";
+    
+ var avg, splitted, part1, part2;
+    splitted =email.split("@");
+    part1 = splitted[0];
+    avg = part1.length / 2;
+    part1 = part1.substring(0, (part1.length - avg));
+    part2 = splitted[1];
+    return part1 + "...@" + part2;
 }
 
 console.log("Protected email:");
 /* Uncomment the following to check */
-  //console.log(protect_email("harry_potter@gmail.com"));
-  //console.log(protect_email("sarah.connor@gmail.com"));
+  console.log(protect_email("harry_potter@gmail.com"));
+  console.log(protect_email("sarah.connor@gmail.com"));
 
 
 /* ---------------------------
@@ -108,14 +120,20 @@ Output:
 HINT: Use indexOf() and slice()
  --------------------------- */
 
-function remove_first_occurrence(text, searchstring) {
-  return "edited text";
+function remove_first_occurrence(text, searchstring) 
+{
+    var index = text.indexOf(searchstring);
+	if (index === -1) {
+		return text;
+	}
+	return text.slice(0, index) + text.slice(index + searchstring.length);
+  
 }
 
 console.log("Remove First Occurrence:");
 /* Uncomment the following to check */
-  //console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
-  //console.log(remove_first_occurrence("Drastic times call for drastic measures", 'drastic'));
+  console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
+  console.log(remove_first_occurrence("Drastic times call for drastic measures", 'drastic'));
 
 
 /* ---------------------------
