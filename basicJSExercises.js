@@ -151,14 +151,15 @@ HINT: Use join(), split() and sort() functions
  --------------------------- */
 
 function alphabetic_order(word) {
-  return "rearranged word";
+    
+  return word.split('').sort().join('');
 }
 
 console.log("Alphabetic Order:");
 /* Uncomment the following to check */
-  // console.log(alphabetic_order("textbook"));
-  // console.log(alphabetic_order("webmaster"));
-  // console.log(alphabetic_order("supercalifragilisticexpialidocious"));
+  console.log(alphabetic_order("textbook"));
+  console.log(alphabetic_order("webmaster"));
+  console.log(alphabetic_order("supercalifragilisticexpialidocious"));
 
 
 /* ---------------------------
@@ -174,13 +175,30 @@ c occurs 5 times
  --------------------------- */
 
 function most_frequent(arr) {
-  console.log("Most frequently occuring item in arr");
+var a = 1;
+var n = 0;
+var itm;
+for (var i=0; i<arr.length; i++)
+{
+        for (var j=i; j<arr.length; j++)
+        {
+                if (arr[i] == arr[j])
+                 n++;
+                if (a<n)
+                {
+                  a=n; 
+                  itm = arr[i];
+                }
+        }
+        n=0;
+}
+console.log(itm+" ( " +a +" times ) ") ;
 }
 
 console.log("Most Frequent Item:");
 /* Uncomment the following to check */
-  // most_frequent([3, 'c', 'c', 'c', 2, 3, 'c', 3, 'c', 2, 4, 9, 3]);
-  // most_frequent([7, 2, 'ax', '9', 9, 'ax', 'ax']);
+  most_frequent([3, 'c', 'c', 'c', 2, 3, 'c', 3, 'c', 2, 4, 9, 3]);
+  most_frequent([7, 2, 'ax', '9', 9, 'ax', 'ax']);
 
 
 /* ---------------------------
@@ -196,13 +214,21 @@ Output:
  --------------------------- */
 
 function remove_duplicates(arr) {
-  console.log("Duplicates removed from array");
+    var unique_array = []
+    for(var i = 0;i < arr.length; i++){
+        if(unique_array.indexOf(arr[i]) == -1){
+            unique_array.push(arr[i])
+        }
+    }
+    return unique_array;
+
+  console.log(remove_duplicates(unique_array));
 }
 
 console.log("Remove Duplicate Values:");
 /* Uncomment the following to check */
-  // remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
-  // remove_duplicates([4, 4, 4, 5, 's', 8, 's']);
+   remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
+   remove_duplicates([4, 4, 4, 5, 's', 8, 's']);
 
 
 /* ---------------------------
@@ -218,15 +244,30 @@ Output:
  --------------------------- */
 
 function dash_in_even(number) {
-  console.log("even numbers separated by dashes");
+    
+var string = number.toString();
+var result = [string[0]];
+  
+for(var i=1; i<string.length; i++)
+  {
+    if((string[i-1]%2 === 0)&&(string[i]%2 === 0))
+     {
+      result.push('-', string[i]);
+     }
+    else
+     {
+      result.push(string[i]);
+     }
+  }
+console.log(result.join(''));
 }
 
 console.log("Dash between Even Numbers:");
 /* Uncomment the following to check */
-  // dash_in_even(100);
-  // dash_in_even(1356);
-  // dash_in_even(246824);
-  // dash_in_even(1324567824);
+  dash_in_even(100);
+  dash_in_even(1356);
+  dash_in_even(246824);
+  dash_in_even(1324567824);
 
 
 /* ---------------------------
@@ -241,11 +282,18 @@ HINT: Use Math.ceil() and Math.random()
 
 function guessing_game(guess) {
   // Get a random integer from 1 to 10 inclusive
-  console.log("matched or unmatched?");
+ var num = Math.ceil(Math.random() * 10);
+ var guess = prompt('Guess the number between 1 and 10 inclusive');
+ if (guess == num)
+   alert('Matched');
+  else
+   alert('Not matched, the number was ' + num);
+    
+  console.log(guess);
 }
 
 console.log("Guessing Game:");
 /* Uncomment the following to check */
-  // var guess = prompt('Guess the number between 1 and 10 inclusive');
-  // console.log("User guessed: "+ guess);
-  // guessing_game(guess);
+   var guess = prompt('Guess the number between 1 and 10 inclusive');
+   console.log("User guessed: "+ guess);
+   guessing_game(guess);
