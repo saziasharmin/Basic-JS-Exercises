@@ -214,21 +214,23 @@ Output:
  --------------------------- */
 
 function remove_duplicates(arr) {
-    var unique_array = []
-    for(var i = 0;i < arr.length; i++){
-        if(unique_array.indexOf(arr[i]) == -1){
-            unique_array.push(arr[i])
+  console.log("Duplicates removed from array");
+    var x="";
+    for(var i=0;i<arr.length;i++)
+        {
+           if(x.indexOf(arr[i])==-1)
+               {
+                   x=x+arr[i];
+               }
         }
-    }
-    return unique_array;
-
-  console.log(remove_duplicates(unique_array));
+    arr=x.split("");
+    return arr;
 }
 
-console.log("Remove Duplicate Values:");
+
 /* Uncomment the following to check */
-   remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]);
-   remove_duplicates([4, 4, 4, 5, 's', 8, 's']);
+  console.log(remove_duplicates([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]));
+  console.log(remove_duplicates([4, 4, 4, 5, 's', 8, 's']));
 
 
 /* ---------------------------
